@@ -3,4 +3,5 @@ pandas
 plotly
 folium
 streamlit_folium
-st_aggrid
+streamlit_aggrid
+pandas-datareader
