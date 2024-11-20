@@ -95,4 +95,4 @@ with tab4:
 
 
 
-#hasta ahora se han usado : plotly, folium, aggrid, streamlit
+#hasta ahora se han usado : plotly, folium, aggrid, streamlit, openpyxl, pandas
