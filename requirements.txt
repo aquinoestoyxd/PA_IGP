@@ -1,8 +1,9 @@
-streamlit
 pandas
-plotly
+streamlit
+streamlit-aggrid
 folium
-streamlit_folium
-streamlit_aggrid
-pandas-datareader
+streamlit-folium
+plotly
 openpyxl
+geopandas
+streamlit-option-menu
