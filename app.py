@@ -56,8 +56,8 @@ data['DEPARTAMENTO'] = data['DEPARTAMENTO'].fillna("SIN UBICACIÓN DEFINIDA")
 with st.sidebar:
     selected = option_menu(
         "Menú Principal",  # Título del menú
-        ["Inicio", "Vista General", "Gráficas", "Mapa Interactivo"],  # Opciones principales
-        icons=["house", "table", "bar-chart", "geo-alt"],  # Íconos
+        ["Inicio", "Vista General", "Gráficas", "Mapa Interactivo","Prevencion","Sismos más Fuertes"],  # Opciones principales
+        icons=["house", "table", "bar-chart", "geo-alt","shield-exclamation","bolt"],  # Íconos
         menu_icon="cast",  # Ícono del menú
         default_index=0,  # Selección inicial
         styles={
@@ -76,7 +76,7 @@ with st.sidebar:
         },
     )
 
-    # Submenú de Graficas (interactiva y datos)
+    # Submenú de Graficas
     if selected == "Gráficas":
         sub_selected = option_menu(
             "Gráficas",  # Título del submenú
@@ -393,3 +393,40 @@ if selected == "Mapa Interactivo":
                     st.write("No hay datos disponibles para este departamento.")
             else:
                 st.write("Selecciona un departamento en el mapa para ver sus características.")
+
+if selected == "Prevencion":
+    st.title("Prevención y Reacción ante Sismos")
+
+    st.markdown("""
+    ### ¿Qué hacer antes de un sismo?
+    - Asegura estanterías y objetos que puedan caer.
+    - Identifica zonas seguras en tu hogar.
+    - Ten un kit de emergencia listo.
+
+    ### ¿Qué hacer durante un sismo?
+    - Mantén la calma.
+    - Aléjate de ventanas y objetos que puedan caer.
+    - Ubícate en zonas de seguridad como debajo de una mesa resistente.
+
+    ### ¿Qué hacer después de un sismo?
+    - Revisa tu entorno en busca de posibles peligros.
+    - Escucha las indicaciones de las autoridades.
+    - No uses elevadores y evita entrar en edificios dañados.
+    """)
+
+    st.image("prevencion.png", caption="Prevención es clave", use_container_width=True)
+
+
+
+elif selected == "Sismos más Fuertes":
+    st.title("Sismos Más Fuertes Registrados")
+
+    # Obtener los 4 sismos más fuertes
+    sismos_fuertes = data.nlargest(4, 'MAGNITUD')
+
+    st.write("### Los 4 sismos más fuertes registrados en el catálogo")
+    st.table(sismos_fuertes[['FECHA_UTC', 'MAGNITUD', 'DEPARTAMENTO', 'LATITUD', 'LONGITUD']])
+
+    # Mostrar imagen
+    st.image("sismo.jpg", caption="Ejemplo de daños por sismos fuertes",
+             use_container_width=True)
