@@ -125,7 +125,7 @@ with st.sidebar:
 #La seleccion para los submenus
 if selected == "Inicio":
 
-    st.title("Análisis de Sismos en el Perú (1960-2023)")
+    st.title("Análisis de Sismos en el Perú (1960-2023) 🌐")
 
     # Breve descripción del proyecto
     st.markdown("""
@@ -152,7 +152,7 @@ if selected == "Inicio":
     """)
 
 elif selected == "Vista General":
-    st.title("Vista General")
+    st.title("Vista General 👀")
     st.write("Tabla extraída del archivo Excel:")
     gd = GridOptionsBuilder.from_dataframe(data)
     gd.configure_pagination(paginationAutoPageSize=True)
@@ -247,7 +247,7 @@ elif selected == "Gráficas":
 
     elif sub_selected == "Gráfico de Datos":
         st.title("Gráfico de Datos")
-        st.subheader("Tendencia Anual de Sismos")
+        st.subheader("Tendencia Anual de Sismos📈")
 
         sismos_por_año = data.groupby('AÑO').size()
         fig_tendencia = px.line(
@@ -302,7 +302,7 @@ elif selected == "Gráficas":
 
 if selected == "Mapa Interactivo":
     if map_selected == "Mapa por Rangos de Magnitud":
-        st.title("Mapa Interactivo: Rangos de Magnitud")
+        st.title("Mapa Interactivo: Rangos de Magnitud🗺")
 
         col1, col2 = st.columns([1, 2])  # Dividir en dos columnas
         with col1:
@@ -335,7 +335,7 @@ if selected == "Mapa Interactivo":
             st_folium(mapa_rangos, width=700, height=500)
 
     elif map_selected == "Mapa por Departamento":
-        st.title("Mapa por Departamento")
+        st.title("Mapa por Departamento 🧭")
         # Dividir en dos columnas
         col1, col2 = st.columns([2, 1])  # Ajusta las proporciones de las columnas (2:1)
         with col1:
@@ -394,7 +394,7 @@ if selected == "Mapa Interactivo":
             else:
                 st.write("Selecciona un departamento en el mapa para ver sus características.")
 
-if selected == "Prevencion":
+if selected == "Prevencion 🚧":
     st.title("Prevención y Reacción ante Sismos")
 
     st.markdown("""
@@ -419,7 +419,7 @@ if selected == "Prevencion":
 
 
 elif selected == "Sismos más Fuertes":
-    st.title("Sismos Más Fuertes Registrados")
+    st.title("Sismos Más Fuertes Registrados 🌎")
 
     # Obtener los 4 sismos más fuertes
     sismos_fuertes = data.nlargest(4, 'MAGNITUD')
