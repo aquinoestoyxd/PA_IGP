@@ -394,8 +394,8 @@ if selected == "Mapa Interactivo":
             else:
                 st.write("Selecciona un departamento en el mapa para ver sus características.")
 
-if selected == "Prevencion 🚧":
-    st.title("Prevención y Reacción ante Sismos")
+if selected == "Prevencion":
+    st.title("Prevención y Reacción ante Sismos🚧")
 
     st.markdown("""
     ### ¿Qué hacer antes de un sismo?
